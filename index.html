@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="깔루아소프트(KahluaSoft) - 일상에 도움이 되는 편리한 앱과 즐거움을 주는 게임을 만듭니다.">
+  <meta name="author" content="KahluaSoft">
+  <title>깔루아소프트 | KahluaSoft</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Ambient Glow Effects -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+  </div>
+
+  <!-- Interactive Steam/Smoke Canvas Background -->
+  <canvas id="steam-canvas" aria-hidden="true"></canvas>
+
+  <div class="app-container">
+    
+    <!-- 1. Header Navigation -->
+    <header class="header-bar">
+      <a href="index.html" class="brand-wrapper" id="nav-brand-link">
+        <img src="assets/logo_horizontal.png" alt="KahluaSoft" class="brand-logo-horizontal" onerror="this.style.display='none'; document.getElementById('brand-text-fallback').style.display='inline';">
+        <span class="brand-text" id="brand-text-fallback" style="display:none;">KahluaSoft</span>
+      </a>
+      
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <!-- Sleek Language Switcher -->
+        <div class="lang-switch-container">
+          <button class="lang-btn active" id="lang-ko" aria-label="한국어">KO</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" id="lang-en" aria-label="English">EN</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" id="lang-ja" aria-label="日本語">JA</button>
+        </div>
+        
+        <div class="status-badge" id="studio-status">
+          <span class="status-indicator" aria-hidden="true"></span>
+          <span id="status-text">정상 작동 중</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. Main Body Content -->
+    <main class="main-content">
+      
+      <!-- Hero Emblem Card & Headline -->
+      <section class="hero-section" id="hero-core">
+        
+        <!-- Central Emblem Card with Automatic CSS Fallback if Image is Missing/Broken -->
+        <div class="emblem-card" id="main-emblem-card">
+          <img src="assets/logo_centered.png" alt="KahluaSoft Logo" id="kahlua-brand-logo" class="logo-image" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
+          
+          <!-- Elegant CSS Logo Fallback in case of image load failure -->
+          <div id="logo-fallback" class="logo-fallback" style="display:none; flex-direction:column; align-items:center; justify-content:center; text-align:center; height:100%;">
+            <div style="font-family:'Outfit', sans-serif; font-size:4rem; font-weight:700; color:var(--accent-gold); letter-spacing:0.05em; line-height:1; text-shadow:0 0 15px rgba(229, 169, 59, 0.4);">KS</div>
+            <div style="font-family:'Outfit', sans-serif; font-size:0.65rem; font-weight:600; color:var(--text-muted); letter-spacing:0.3em; margin-top:0.5rem; text-transform:uppercase;">Est. 2006</div>
+          </div>
+        </div>
+
+        <h1 class="hero-tagline" id="hero-title">
+          재미와 편리함을 담은<br>
+          <span class="gold-gradient-text">좋은 소프트웨어</span>를 만듭니다.
+        </h1>
+
+        <p class="hero-description" id="hero-desc">
+          우리는 기본에 충실한 기술력과 즐거운 상상력을 결합합니다. 
+          쓰기 편한 웹과 앱 서비스부터 몰입감 있는 게임까지, 
+          일상에 작은 편리함과 즐거움을 줄 수 있도록 정성을 담아 소프트웨어를 만듭니다.
+        </p>
+      </section>
+
+      <!-- Showcase Spotlight: SeenOnly Teaser -->
+      <section class="teaser-section" id="teaser-seenonly">
+        <a href="https://seen.kahluasoft.com" class="teaser-card-link" target="_blank" rel="noopener noreferrer" title="SeenOnly 서비스 페이지로 이동">
+          <div class="teaser-card">
+            <!-- Widescreen high-impact banner image -->
+            <div class="teaser-banner-wrapper">
+              <img src="assets/seenonly.png" alt="SeenOnly" class="teaser-banner-image" onerror="this.style.display='none';">
+            </div>
+            
+            <div class="teaser-content-group">
+              <div class="teaser-badge" id="teaser-tag">주요 프로젝트</div>
+              <h2 class="teaser-title" id="teaser-title">SeenOnly (본만큼)</h2>
+              <div class="teaser-copy-group">
+                <span class="teaser-main-copy" id="teaser-main-copy">본 만큼만 보이고, 본 사람끼리 마음껏 말해요.</span>
+                <span class="teaser-sub-copy" id="teaser-sub-copy">제목은 안전하게, 본문은 스포일러천국.</span>
+                <span class="teaser-lang-info" id="teaser-lang-info"></span>
+              </div>
+              <p class="teaser-description" id="teaser-desc">
+                드라마, 웹툰, 영화, OTT 시리즈의 회차별 토론 커뮤니티입니다. 제목엔 절대 스포 금지! 본문엔 마음 놓고 스포하는 작품 감상 토론 공간으로, 다른 사람들의 감상을 보고 싶어도 스포일러 때문에 게시판 들어가기가 힘들었던 분들을 위한 곳입니다. 안심하고 작품을 즐기고 나누어 보세요.
+              </p>
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <!-- Suggest & Contact Form Section -->
+      <section class="suggest-section" id="contact-suggest">
+        <div class="section-header">
+          <h2 class="section-title" id="form-title">생각 나누기</h2>
+          <p class="section-subtitle" id="form-subtitle">더 편리한 일상, 새로운 재미에 대한 어떤 제안이든 환영합니다.</p>
+        </div>
+
+        <form class="suggest-form" id="suggest-form" novalidate>
+          
+          <!-- Name Field -->
+          <div class="form-group">
+            <input type="text" id="user-name" class="form-input" placeholder=" " required autocomplete="name">
+            <label for="user-name" class="form-label" id="label-name">성함 또는 단체명</label>
+          </div>
+
+          <!-- Email Field -->
+          <div class="form-group">
+            <input type="email" id="user-email" class="form-input" placeholder=" " required autocomplete="email">
+            <label for="user-email" class="form-label" id="label-email">이메일 주소</label>
+          </div>
+
+          <!-- Category Selection -->
+          <div class="form-group">
+            <select id="suggest-category" class="form-input" style="padding-right:2rem; -webkit-appearance:none; -moz-appearance:none; appearance:none; background-image:url('data:image/svg+xml;utf8,<svg fill=\"%23e5a93b\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/><path d=\"M0 0h24v24H0z\" fill=\"none\"/></svg>'); background-repeat:no-repeat; background-position:right 1rem center; background-size:1.25rem;" required>
+              <option value="" disabled selected hidden></option>
+              <option value="app_idea" id="opt-idea">새로운 앱/서비스 아이디어 제안</option>
+              <option value="game_feedback" id="opt-game">게임 피드백 & 협업</option>
+              <option value="business_inquiry" id="opt-business">일반 문의</option>
+              <option value="other" id="opt-other">기타 자유 제안</option>
+            </select>
+            <label for="suggest-category" class="form-label" id="label-category">문의 및 제안 유형</label>
+          </div>
+
+          <!-- Message Field -->
+          <div class="form-group">
+            <textarea id="user-message" class="form-textarea" placeholder=" " required></textarea>
+            <label for="user-message" class="form-label" id="label-message">당신의 소중한 의견이나 문의 사항을 자유롭게 남겨주세요.</label>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="submit-button" class="submit-btn">
+            생각 전송하기
+          </button>
+        </form>
+      </section>
+
+    </main>
+
+    <!-- 3. Footer Section -->
+    <footer class="footer-bar">
+      <p id="footer-text">© 2026 KahluaSoft. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <!-- Custom Success Toast Notification -->
+  <div class="toast" id="success-toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-icon">☕</div>
+    <div class="toast-message" id="toast-message">제안이 성공적으로 전달되었습니다!</div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

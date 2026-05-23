@@ -1,0 +1,11 @@
+# KahluaSoft Project Git Ignore
+.system_generated/
+.gemini/
+brain/
+scratch/
+*.log
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+.DS_Store
+Thumbs.db
