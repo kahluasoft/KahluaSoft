@@ -51,6 +51,13 @@ html, body {
   word-break: keep-all;
 }
 
+/* Japanese does not use spaces, so keep-all would prevent any wrapping and cause overflow.
+   We override it to normal character wrapping for Japanese viewports. */
+:lang(ja),
+:lang(ja) * {
+  word-break: normal;
+}
+
 /* Scrollbar Customization */
 ::-webkit-scrollbar {
   width: 8px;
