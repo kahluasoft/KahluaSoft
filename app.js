@@ -87,14 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
       toastSuccess: '☕ ご意見をお寄せいただきありがとうございます。大切に検討させていただきます。',
       toastValidationError: '⚠️ すべての必須項目を正しく入力してください。',
       footerText: '© 2026 KahluaSoft. All rights reserved.',
-      metaDesc: 'カルアソフト(KahluaSoft) - 日主に役立つ便利なアプリや、楽しさを届けるゲームを制作しています。',
+      metaDesc: 'カルアソフト(KahluaSoft) - 日常に役立つ便利なアプリや、楽しさを届けるゲームを制作しています。',
       docTitle: 'カルアソフト | KahluaSoft'
     }
   };
 
   let currentLang = localStorage.getItem('kahlua_lang') || 'ko';
 
-  // Make the language switcher container display state adapt to lang notice existence
   function updateLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('kahlua_lang', lang);
@@ -107,10 +106,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update document head attributes
     document.documentElement.lang = lang;
     document.title = i18n[lang].docTitle;
+    
+    // Update Standard Meta Description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', i18n[lang].metaDesc);
     }
+
+    // Update Open Graph (Facebook/Kakao/Slack) Meta Tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogTitle) ogTitle.setAttribute('content', i18n[lang].docTitle);
+    if (ogDesc) ogDesc.setAttribute('content', i18n[lang].metaDesc);
+
+    // Update Twitter Card Meta Tags
+    const twitterTitle = document.querySelector('meta[property="twitter:title"]');
+    const twitterDesc = document.querySelector('meta[property="twitter:description"]');
+    if (twitterTitle) twitterTitle.setAttribute('content', i18n[lang].docTitle);
+    if (twitterDesc) twitterDesc.setAttribute('content', i18n[lang].metaDesc);
 
     // Update DOM text contents dynamically with smooth transitions
     const elementsToTranslate = [
