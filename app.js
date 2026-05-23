@@ -127,7 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update DOM text contents dynamically with smooth transitions
     const elementsToTranslate = [
-      { id: 'status-text', text: i18n[lang].statusText },
+      { id: 'status-text-header', text: i18n[lang].statusText },
+      { id: 'status-text-footer', text: i18n[lang].statusText },
       { id: 'hero-title', text: i18n[lang].heroTitle, isHTML: true },
       { id: 'hero-desc', text: i18n[lang].heroDesc },
       { id: 'teaser-tag', text: i18n[lang].teaserTag },
