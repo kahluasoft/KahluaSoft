@@ -149,6 +149,12 @@ h1, h2, h3, h4 {
   gap: 1.5rem;
 }
 
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .lang-switch-container {
   display: flex;
   align-items: center;
@@ -229,6 +235,7 @@ h1, h2, h3, h4 {
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--accent-gold);
+  white-space: nowrap;
 }
 
 .status-indicator {
@@ -647,6 +654,12 @@ h1, h2, h3, h4 {
 @media (max-width: 768px) {
   .app-container {
     padding: 0 1.25rem;
+  }
+  
+  .header-controls {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
   }
   
   .hero-tagline {
