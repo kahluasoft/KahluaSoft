@@ -16,6 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
       teaserSubCopy: '제목은 안전하게, 본문은 스포일러천국.',
       teaserLangInfo: '', // Keep empty for Korean users
       teaserDesc: '드라마, 웹툰, 영화, OTT 시리즈의 회차별 토론 커뮤니티입니다. 제목엔 절대 스포 금지! 본문엔 마음 놓고 스포하는 작품 감상 토론 공간으로, 다른 사람들의 감상을 보고 싶어도 스포일러 때문에 게시판 들어가기가 힘들었던 분들을 위한 곳입니다. 안심하고 작품을 즐기고 나누어 보세요.',
+      teaserMyNameKoreanTag: '유틸리티 앱',
+      teaserMyNameKoreanTitle: 'How I write my name in Korean?',
+      teaserMyNameKoreanMainCopy: '내 이름을 가장 자연스러운 한글로 적어보세요.',
+      teaserMyNameKoreanSubCopy: '간편한 변환, 클립보드 복사, 그리고 한글 발음 가이드.',
+      teaserMyNameKoreanLangInfo: '',
+      teaserMyNameKoreanDesc: '외국인 친구들의 이름을 자연스러운 한국어 발음과 한글 표기로 변환해 주는 도구입니다. 한글 이름을 클립보드에 복사해 메신저나 SNS 등 다양한 곳에서 손쉽게 공유하고 활용할 수 있습니다.',
       formTitle: '생각 나누기',
       formSubtitle: '더 편리한 일상, 새로운 재미에 대한 어떤 제안이든 환영합니다.',
       labelName: '성함 또는 단체명',
@@ -44,6 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
       teaserSubCopy: 'Safe titles, absolute spoiler heaven.',
       teaserLangInfo: '* Currently available in Korean only (Global language support coming soon)',
       teaserDesc: 'An episode-by-episode discussion community for dramas, webtoons, movies, and OTT series. Zero spoilers in titles—absolute spoiler freedom in descriptions! Designed for those who want to read others\' thoughts but dreaded opening forums due to spoilers. Discuss and enjoy your favorite works with peace of mind.',
+      teaserMyNameKoreanTag: 'Utility App',
+      teaserMyNameKoreanTitle: 'How I write my name in Korean?',
+      teaserMyNameKoreanMainCopy: 'Discover how your name is written in Hangul.',
+      teaserMyNameKoreanSubCopy: 'Simple conversion, clipboard integration, and natural spelling.',
+      teaserMyNameKoreanLangInfo: '',
+      teaserMyNameKoreanDesc: 'A clean and intuitive utility to convert foreign names into natural-sounding Korean Hangul characters. Easily copy the translated Hangul text to your clipboard to share with friends or use across your favorite social apps.',
       formTitle: 'Let\'s Brew Together',
       formSubtitle: 'We welcome any ideas, feedback, or custom software inquiries.',
       labelName: 'Your Name / Organization',
@@ -72,6 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
       teaserSubCopy: 'タイトルは安全に、本文はネタバレ天国。',
       teaserLangInfo: '※ 現在、韓国語サービスのみ提供中（他言語は順次対応予定）',
       teaserDesc: 'ドラマ、ウェブトゥーン、映画、OTTシリーズの回別討論コミュニティです。タイトルには絶対ネタバレ禁止！本文には思う存分ネタバレして語り合える作品鑑賞討論スペースで、他の人の感想を見たくてもネタバレが怖くて掲示板に入りにくかった方のための場所です。安心して作品を楽しんで共有しましょう。',
+      teaserMyNameKoreanTag: 'ユーティリティアプリ',
+      teaserMyNameKoreanTitle: 'How I write my name in Korean?',
+      teaserMyNameKoreanMainCopy: 'あなたの名前を一番自然なハングルで書いてみましょう。',
+      teaserMyNameKoreanSubCopy: '簡単なハングル変換、クリップボードコピー、発音ガイド。',
+      teaserMyNameKoreanLangInfo: '',
+      teaserMyNameKoreanDesc: '外国人の名前を自然な韓国語の発音とハングル表記に変換してくれる便利なツールです。変換されたハングル名はクリップボードにコピーして、メッセンジャーやSNSなどで自由に共有して使用できます。',
       formTitle: 'ご提案と意見',
       formSubtitle: 'より便利な日常、新しい楽しさに関するご提案をいつでも歓迎します。',
       labelName: 'お名前または団体名',
@@ -137,6 +155,12 @@ document.addEventListener('DOMContentLoaded', () => {
       { id: 'teaser-sub-copy', text: i18n[lang].teaserSubCopy },
       { id: 'teaser-lang-info', text: i18n[lang].teaserLangInfo },
       { id: 'teaser-desc', text: i18n[lang].teaserDesc },
+      { id: 'teaser-mynamekorean-tag', text: i18n[lang].teaserMyNameKoreanTag },
+      { id: 'teaser-mynamekorean-title', text: i18n[lang].teaserMyNameKoreanTitle },
+      { id: 'teaser-mynamekorean-main-copy', text: i18n[lang].teaserMyNameKoreanMainCopy },
+      { id: 'teaser-mynamekorean-sub-copy', text: i18n[lang].teaserMyNameKoreanSubCopy },
+      { id: 'teaser-mynamekorean-lang-info', text: i18n[lang].teaserMyNameKoreanLangInfo },
+      { id: 'teaser-mynamekorean-desc', text: i18n[lang].teaserMyNameKoreanDesc },
       { id: 'form-title', text: i18n[lang].formTitle },
       { id: 'form-subtitle', text: i18n[lang].formSubtitle },
       { id: 'label-name', text: i18n[lang].labelName },
@@ -161,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         // Hide lang info if empty to prevent empty margins
-        if (item.id === 'teaser-lang-info') {
+        if (item.id === 'teaser-lang-info' || item.id === 'teaser-mynamekorean-lang-info') {
           el.style.display = item.text ? 'block' : 'none';
         }
       }
