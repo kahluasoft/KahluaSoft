@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       toastSuccess: '☕ 의견을 보내주셔서 감사합니다. 소중히 검토하겠습니다!',
       toastValidationError: '⚠️ 모든 필수 항목을 정확하게 입력해 주세요.',
       footerText: '© 2026 KahluaSoft. All rights reserved.',
+      privacyPolicy: '개인정보처리방침',
       metaDesc: '깔루아소프트(KahluaSoft) - 일상에 도움이 되는 편리한 앱과 즐거움을 주는 게임을 만듭니다.',
       docTitle: '깔루아소프트 | KahluaSoft'
     },
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
       toastSuccess: '☕ Your suggestion has been successfully blended into KahluaSoft\'s recipe!',
       toastValidationError: '⚠️ Please fill out all required fields correctly.',
       footerText: '© 2026 KahluaSoft. All rights reserved. Crafted Smoothly.',
+      privacyPolicy: 'Privacy Policy',
       metaDesc: 'KahluaSoft - We blend robust engineering with playful imagination to craft seamless digital experiences.',
       docTitle: 'KahluaSoft | Software Craftsmanship House'
     },
@@ -105,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
       toastSuccess: '☕ ご意見をお寄せいただきありがとうございます。大切に検討させていただきます。',
       toastValidationError: '⚠️ すべての必須項目を正しく入力してください。',
       footerText: '© 2026 KahluaSoft. All rights reserved.',
+      privacyPolicy: '個人情報保護方針',
       metaDesc: 'カルアソフト(KahluaSoft) - 日常に役立つ便利なアプリや、楽しさを届けるゲームを制作しています。',
       docTitle: 'カルアソフト | KahluaSoft'
     }
@@ -117,9 +120,12 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('kahlua_lang', lang);
     
     // Toggle active state on buttons
-    document.getElementById('lang-ko').classList.toggle('active', lang === 'ko');
-    document.getElementById('lang-en').classList.toggle('active', lang === 'en');
-    document.getElementById('lang-ja').classList.toggle('active', lang === 'ja');
+    const btnKo = document.getElementById('lang-ko');
+    const btnEn = document.getElementById('lang-en');
+    const btnJa = document.getElementById('lang-ja');
+    if (btnKo) btnKo.classList.toggle('active', lang === 'ko');
+    if (btnEn) btnEn.classList.toggle('active', lang === 'en');
+    if (btnJa) btnJa.classList.toggle('active', lang === 'ja');
 
     // Update document head attributes
     document.documentElement.lang = lang;
@@ -172,7 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
       { id: 'opt-other', text: i18n[lang].optOther },
       { id: 'label-message', text: i18n[lang].labelMessage },
       { id: 'submit-button', text: i18n[lang].submitBtn },
-      { id: 'footer-text', text: i18n[lang].footerText }
+      { id: 'footer-text', text: i18n[lang].footerText },
+      { id: 'privacy-policy-link', text: i18n[lang].privacyPolicy }
     ];
 
     elementsToTranslate.forEach(item => {
@@ -193,9 +200,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Bind Language Switcher Click Handlers
-  document.getElementById('lang-ko').addEventListener('click', () => updateLanguage('ko'));
-  document.getElementById('lang-en').addEventListener('click', () => updateLanguage('en'));
-  document.getElementById('lang-ja').addEventListener('click', () => updateLanguage('ja'));
+  const switchKo = document.getElementById('lang-ko');
+  const switchEn = document.getElementById('lang-en');
+  const switchJa = document.getElementById('lang-ja');
+  if (switchKo) switchKo.addEventListener('click', () => updateLanguage('ko'));
+  if (switchEn) switchEn.addEventListener('click', () => updateLanguage('en'));
+  if (switchJa) switchJa.addEventListener('click', () => updateLanguage('ja'));
 
   // Initialize language on load
   updateLanguage(currentLang);

@@ -663,6 +663,23 @@ h1, h2, h3, h4 {
   gap: 0.5rem;
 }
 
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-gold);
+}
+
 /* Responsive Queries */
 @media (max-width: 768px) {
   .app-container {
@@ -703,5 +720,189 @@ h1, h2, h3, h4 {
     right: 1.25rem;
     bottom: 1.25rem;
     justify-content: center;
+  }
+}
+
+/* 6. Privacy Policy Styles */
+.privacy-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: var(--card-bg, rgba(26, 22, 18, 0.6));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color, rgba(229, 169, 59, 0.15));
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.privacy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(229, 169, 59, 0.1);
+  padding-bottom: 1.5rem;
+}
+
+.privacy-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, #fff 0%, #e5a93b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.privacy-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(229, 169, 59, 0.05);
+}
+
+.privacy-tab-btn {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.85rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+}
+
+.privacy-tab-btn:hover {
+  color: #fff;
+  background: rgba(229, 169, 59, 0.05);
+}
+
+.privacy-tab-btn.active {
+  color: #1a1612;
+  background: linear-gradient(135deg, #f3d082 0%, #e5a93b 100%);
+  box-shadow: 0 4px 15px rgba(229, 169, 59, 0.3);
+}
+
+.privacy-content-wrapper {
+  color: var(--text-cream, #f5ecd7);
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.privacy-section {
+  display: none;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.privacy-section.active {
+  display: block;
+}
+
+.privacy-section h2 {
+  font-size: 1.4rem;
+  color: var(--accent-gold, #e5a93b);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid var(--accent-gold, #e5a93b);
+  padding-left: 0.75rem;
+}
+
+.privacy-section h3 {
+  font-size: 1.15rem;
+  color: #fff;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.privacy-section p {
+  margin-bottom: 1.25rem;
+  color: rgba(245, 236, 215, 0.85);
+}
+
+.privacy-section ul, .privacy-section ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: rgba(245, 236, 215, 0.8);
+}
+
+.privacy-section li {
+  margin-bottom: 0.5rem;
+}
+
+.privacy-section a {
+  color: var(--accent-gold, #e5a93b);
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+}
+
+.privacy-section a:hover {
+  opacity: 0.8;
+}
+
+.lang-switch-privacy {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.25rem;
+  border-radius: 10px;
+  border: 1px solid rgba(229, 169, 59, 0.05);
+}
+
+.lang-btn-privacy {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.4rem 0.8rem;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-btn-privacy.active {
+  color: #fff;
+  background: rgba(229, 169, 59, 0.15);
+}
+
+/* Multilingual Toggle Rules */
+html[lang="ko"] .lang-en { display: none !important; }
+html[lang="en"] .lang-ko { display: none !important; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .privacy-container {
+    padding: 1.5rem;
+    margin: 1rem auto;
+    border-radius: 16px;
+  }
+  
+  .privacy-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .privacy-tabs {
+    flex-direction: column;
+    padding: 0.25rem;
+  }
+  
+  .privacy-tab-btn {
+    width: 100%;
+    padding: 0.75rem;
   }
 }
